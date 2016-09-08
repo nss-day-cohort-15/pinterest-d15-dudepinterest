@@ -6,11 +6,13 @@
         <link rel="stylesheet" type="text/css" href="lib/bower_components/materialize/dist/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
+
     <body ng-app="DudePinterestApp">
+    <div ng-controller="TopCtrl">
       <div ng-include="'partials/navbar.html'"></div>
 
       <div ng-view></div>
-
+    </div>
       <!-- PUBLIC -->
         <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -22,10 +24,13 @@
         <script type="text/javascript" src="app/app.js"></script>
 
         <!-- CONTROLLERS -->
+        <script type="text/javascript" src="app/controllers/TopCtrl.js"></script>
         <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+        <script type="text/javascript" src="app/controllers/ProfileCtrl.js"></script>
 
         <!-- FACTORIES -->
         <script type="text/javascript" src="app/values/FirebaseKeys.js"></script>
+        <script type="text/javascript" src="app/factories/firebaseFactory.js"></script>
         <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
 
     </body>

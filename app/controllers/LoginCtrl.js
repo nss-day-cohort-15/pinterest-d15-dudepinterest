@@ -26,7 +26,7 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
         AuthFactory.loginUser($scope.account)
         .then( (data) => {
             if (data) {
-            AuthFactory.setUid(data.uid)
+            // AuthFactory.setUid(data.uid)
             $window.location.href = "#/boards"
             } else {
             $window.location.href = "#/login"
