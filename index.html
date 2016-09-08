@@ -3,10 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Dude, Pinterest</title>
-        <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/bower_components/materialize/dist/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
-    <body>
+    <body ng-app="DudePinterestApp">
+      <div ng-include="'partials/navbar.html'"></div>
+
+
       <!-- PUBLIC -->
         <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
