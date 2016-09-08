@@ -1,6 +1,11 @@
 <div ng-init="loadPinsToDom()">
     <h1>BOARD TITLE</h1>
     <div ng-repeat="pin in pinArray">
-        <h1>{{pin.name}}</h1>
+        <div class="pinCard">
+            <h1>{{pin.name}}</h1>
+            <h1>{{pin.description}}</h1>
+            <button ng-click="deletePin()">Delete Pin</button>
+            <button ng-click="editPin()">Edit Pin</button>
+        </div>
     </div>
 </div>

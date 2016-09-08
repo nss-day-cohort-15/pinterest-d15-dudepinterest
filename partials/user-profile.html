@@ -1,5 +1,7 @@
 <div ng-init="loadBoardsToDom()">
     <div ng-repeat="board in boardArray">
         <a ng-href="#/boards/{{board.boardid}}"><div>{{board.name}}</div></a>
+        <button>Delete This Board</button>
+        <button>Edit This Board</button>
     </div>
 </div>

@@ -6,11 +6,19 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $location, fireb
 
     $scope.loadPinsToDom = function () {
         console.log("loadPinsToDom running")
-        console.log("routeParams BoardID", $routeParams.boardid)
         firebaseFactory.getPins($routeParams.boardid)
         .then(function (filteredPinArray) {
             $scope.pinArray = filteredPinArray
         })
+    }
+
+    $scope.deletePin = function () {
+        console.log("deletePin running")
+        // firebaseFactory.deletePin(pinid)
+    }
+    $scope.editPin = function () {
+        console.log("editPin running")
+        // firebaseFactory.patchPin(pinid)
     }
 
 

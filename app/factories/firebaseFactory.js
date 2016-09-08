@@ -20,13 +20,10 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
 
   let getPins = (boardID) => {
     console.log("getPins running")
-    console.log("boardID in getPins", boardID)
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
-        console.log("pinArray in getPins", pinArray)
         let filteredPinArray = filterArrayByID(pinArray,'boardid',boardID);
-        console.log("filteredPinArray in getPins", filteredPinArray)
         resolve(filteredPinArray);
       } ,(error) => {
         // console.error(error);
