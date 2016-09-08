@@ -1,0 +1,28 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/nss-day-cohort-15/pinterest-d15-dudepinterest",
+  "authors": [
+    "Garrett Vangilder <garrett.vangilder@gmail.com>",
+    "Casey",
+    "David",
+    "Matt"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "bootstrap": "^3.3.6",
+    "firebase": "^3.2.0",
+    "jquery": "^3.1.0",
+    "materialize": "^0.97.7"
+  }
+}
