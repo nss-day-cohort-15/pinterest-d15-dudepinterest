@@ -11,4 +11,14 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         })
     }
 
+    $scope.deleteBoard = function () {
+        console.log("deleteBoard is running")
+        // firebaseFactory.deleteBoard($routeParams.boardid)
+    }
+
+    $scope.editBoard = function () {
+        console.log("editBoard is running")
+        // firebaseFactory.patchBoard($routeParams.boardid)
+    }
+
 })
