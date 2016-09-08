@@ -11,7 +11,4 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         })
     }
 
-
-
-
 })

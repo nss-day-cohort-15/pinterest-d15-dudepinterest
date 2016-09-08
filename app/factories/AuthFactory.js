@@ -4,14 +4,20 @@ app.factory("AuthFactory", function () {
 
     let _uid = null
 
-    let setUid = function (uid) {
-        _uid = uid
-        console.log("_uid", _uid)
-    }
+    // let setUid = function (uid) {
+    //     _uid = uid
+    //     console.log("_uid", _uid)
+    // }
 
     let getUid = function () {
         return _uid
     }
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log("onAuthStateChanged running")
+        _uid = user.uid
+        console.log("uid in onAuthStateChanged", _uid)
+    })
 
     let createUser = function (userObj) {
         return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
@@ -41,6 +47,6 @@ app.factory("AuthFactory", function () {
         return (firebase.auth().currentUser) ? true : false
     }
 
-    return {createUser, loginUser, logoutUser, setUid, getUid, isAuthenticated}
+    return {createUser, loginUser, logoutUser, getUid, isAuthenticated}
 
 })
