@@ -46,6 +46,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
       }
       resultsArray.push(object[key]);
     })
+    return resultsArray;
   }
 
   let filterArrayByID = (data, idType, ID) => {
