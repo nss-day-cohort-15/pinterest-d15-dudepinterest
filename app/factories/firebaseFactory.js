@@ -20,7 +20,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
 
   let getPins = (boardID) => {
     return $q((resolve,reject) => {
-      $http.get(`{FBCreds.databaseURL}/pins`).then((data) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
         let filteredPinArray = filterArrayByID(pinArray,'boardid',boardID);
         resolve(filteredPinArray);

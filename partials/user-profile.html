@@ -1,5 +1,5 @@
 <div ng-init="loadBoardsToDom()">
     <div ng-repeat="board in boardArray">
-        <div>{{board.name}}</div>
+        <a ng-href="#/boards/{{board.boardid}}"><div>{{board.name}}</div></a>
     </div>
 </div>
