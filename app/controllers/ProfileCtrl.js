@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, AuthFactory) {
+app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, AuthFactory, $window, $location) {
 
     $scope.boardArray = []
 
@@ -9,6 +9,12 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         .then(function (filteredBoardArray) {
             $scope.boardArray = filteredBoardArray
         })
+    }
+
+    $scope.addNewBoard = function () {
+        console.log("addNewBoard is running")
+        $window.location.href = "#/boards/new"
+        // firebaseFactory.pushBoard(boardObj)
     }
 
     $scope.deleteBoard = function () {
@@ -20,5 +26,7 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         console.log("editBoard is running")
         // firebaseFactory.patchBoard($routeParams.boardid)
     }
+
+
 
 })

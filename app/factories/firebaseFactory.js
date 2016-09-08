@@ -34,7 +34,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
 
   let pushBoard = (boardObj) => {
     return $q((resolve,reject) => {
-      $http.post('{FBCreds.databaseURL}/boards',boardObj).then((boardID) => {
+      $http.post("https://dude-pinterest.firebaseio.com/boards.json",boardObj).then((boardID) => {
         resolve(boardID)
       }),(error) => {
         console.error(error);
