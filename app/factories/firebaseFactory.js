@@ -9,7 +9,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
       .then((data) => {
         let boardArray = convertResultsToArray(data.data,'boardid',userID);
         let filteredBoardArray = filterArrayByID(boardArray,'uid',userID);
-        console.log("filteredData from firebase", data)
+        console.log("filteredData from firebase", filteredBoardArray)
         resolve(filteredBoardArray);
       }, (error) => {
         console.error(error);
@@ -83,7 +83,8 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
       }
     })
   };
-  let deletePin = (pinID) =>
+
+  let deletePin = (pinID) => {
     return $q((resolve,reject) => {
       $http.delete('{FBCreds.databaseURL}/pins/{pinid}').then((pinID) => {
         resolve(pinID)
