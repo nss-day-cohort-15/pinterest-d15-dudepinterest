@@ -1,8 +1,14 @@
+"use strict";
+
 var app = angular.module("DudePinterestApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
   $routeProvider.
-  when("/" || "/login", {
+  when("/", {
+    templateUrl: "partials/login.html",
+    controller: "LoginCtrl"
+  }).
+  when("/login", {
     templateUrl: "partials/login.html",
     controller: "LoginCtrl"
   }).
@@ -24,3 +30,13 @@ app.config(function($routeProvider) {
   }).
   otherwise("/login");
 });
+
+app.run( ($location, FBCreds) => {
+    let creds = FBCreds
+    let authConfig = {
+        apiKey: creds.key,
+        authDomain: creds.authDomain,
+        databaseURL: creds.databaseURL
+    }
+    firebase.initializeApp(authConfig)
+})
