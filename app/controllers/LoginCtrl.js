@@ -31,7 +31,7 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
             } else {
             $window.location.href = "#/login"
             }
-            console.log("data from login", data)
+            console.log("data from login", AuthFactory.getUid())
         })
     }
 

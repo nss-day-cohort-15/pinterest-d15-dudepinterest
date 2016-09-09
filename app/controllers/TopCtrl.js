@@ -2,7 +2,7 @@
 
 app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
 
-    $scope.isLoggedIn = false
+    $scope.isLoggedIn = false;
 
     // This is a watcher method built on the Firebase auth() method
     firebase.auth().onAuthStateChanged(function (user) {
@@ -26,6 +26,5 @@ app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
             console.log("User logged out")
         })
     }
-
 
 })

@@ -4,10 +4,9 @@ var app = angular.module("DudePinterestApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
   $routeProvider.
-  when("/", {
-    templateUrl: "partials/login.html",
-    controller: "LoginCtrl"
-  }).
+  when("/home", {
+    redirectTo: "/boards"
+    }).
   when("/login", {
     templateUrl: "partials/login.html",
     controller: "LoginCtrl"
@@ -31,7 +30,8 @@ app.config(function($routeProvider) {
   when("/boards/:boardid/newPin", {
     templateUrl: "partials/pin-new.html",
     controller: "newPinCtrl"
-  }).
+  })
+  .
   otherwise("/login");
 });
 
