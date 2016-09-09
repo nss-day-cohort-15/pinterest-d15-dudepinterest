@@ -15,6 +15,7 @@ app.controller("PinEditCtrl", function($scope, $location, $routeParams, firebase
   })
 
   $scope.addNewItem = () => {
+    $scope.showToast("Dude, nice edit.")
       firebaseFactory.updateSinglePin($routeParams.pinid, $scope.selectedPin)
           .then((response) => {
               $location.url(`/boards/${$routeParams.boardid}`)

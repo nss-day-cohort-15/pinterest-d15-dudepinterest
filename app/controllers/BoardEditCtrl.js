@@ -20,6 +20,8 @@ app.controller("BoardEditCtrl", function($scope, $location, $routeParams, fireba
         firebaseFactory.updateSingleBoard($routeParams.boardid, $scope.selectedBoard)
             .then((response) => {
                 $location.url("/boards")
+                $scope.showToast("Dude, you edited your board");
+
             });
     };
 
