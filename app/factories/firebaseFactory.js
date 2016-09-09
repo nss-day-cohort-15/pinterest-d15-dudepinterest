@@ -3,7 +3,6 @@
 app.factory('firebaseFactory',function($q,$http,FBCreds) {
 
   let getBoards = (userID) => {
-    console.log("getBoards running")
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/boards.json`)
       .then((data) => {
@@ -19,7 +18,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
   };
 
   let getPins = (boardID) => {
-    console.log("getPins running")
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
@@ -44,7 +42,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
   };
   let pushPin = (pinObj) => {
     return $q((resolve,reject) => {
-      $http.post('{FBCreds.databaseURL}/pins',pinObj).then((pinID) => {
+      $http.post('https://dude-pinterest.firebaseio.com/pins.json',pinObj).then((pinID) => {
         resolve(pinID)
       }),(error) => {
         console.error(error);
