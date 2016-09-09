@@ -8,9 +8,10 @@ app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             $scope.isLoggedIn = true
-            console.log("Current user logged in?", user.uid)
+            console.log("user logged in?", $scope.isLoggedIn)
         } else {
             $scope.isLoggedIn = false
+            console.log("user logged in?", $scope.isLoggedIn)
             $window.location.href = "#/login"
         }
         // Normally, Angular would know that this variable ($scope.isLoggedIn) changed
