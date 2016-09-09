@@ -15,6 +15,8 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
         })
         .then( (userData) => {
             console.log("userData", userData)
+            $scope.showToast("Dude, you registered for dude, pinterest");
+
             $scope.login()
         }, (error) => {
             console.log(`Error creating user: ${error}`)
@@ -28,6 +30,7 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
             if (data) {
             // AuthFactory.setUid(data.uid)
             $window.location.href = "#/boards"
+            $scope.showHelloToast();
             } else {
             $window.location.href = "#/login"
             }
