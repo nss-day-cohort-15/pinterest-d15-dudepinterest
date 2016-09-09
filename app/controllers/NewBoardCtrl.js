@@ -6,7 +6,6 @@ app.controller("NewBoardCtrl", function ($scope, AuthFactory, firebaseFactory, $
 
     $scope.newBoard = {
         "name": "",
-        "boardid": "",
         "uid": _uid
     }
 
