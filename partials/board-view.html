@@ -3,7 +3,8 @@
         <a class="waves-effect waves-light btn" ng-click="addNewPin()">
             <i class="material-icons left">note_add</i>Add New Pin</a>
         <div ng-init="loadPinsToDom()">
-            <div class="card col s6 m4 l3" ng-repeat="pin in pinArray">
+            <div class="col s6 m4 l3" ng-repeat="pin in pinArray">
+            <div class="card">
                 <div class="card-image">
                     <img src="{{pin.imgurl}}">
                     <span class="card-title">{{pin.title}}</span>
@@ -12,10 +13,11 @@
                     <p>{{pin.description}}</p>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn" ng-click="deletePin(pin.pinid)">
-                        <i class="material-icons left">delete</i>Delete Pin</a>
-                    <a class="waves-effect waves-light btn" ng-href="#/edit/{{pin.boardid}}/{{pin.pinid}}">
-                        <i class="material-icons left">mode_edit</i>Edit Pin</a>
+                    <a class="waves-effect waves-light btn btn-small" ng-click="deletePin(pin.pinid)">
+                        <i class="material-icons left">delete</i>Delete</a>
+                    <a class="waves-effect waves-light btn btn-small right" ng-href="#/edit/{{pin.boardid}}/{{pin.pinid}}">
+                        <i class="material-icons left">mode_edit</i>Edit</a>
+                </div>
                 </div>
             </div>
         </div>
