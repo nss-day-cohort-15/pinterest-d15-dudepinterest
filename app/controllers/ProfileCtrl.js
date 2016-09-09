@@ -12,7 +12,6 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
     }
 
     $scope.addNewBoard = function () {
-        console.log("addNewBoard is running")
         $window.location.href = "#/boards/new"
         // firebaseFactory.pushBoard(boardObj)
     }
