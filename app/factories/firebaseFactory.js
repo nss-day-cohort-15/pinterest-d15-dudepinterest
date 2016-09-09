@@ -17,6 +17,9 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
+
+
+
   let getSingleBoard = (boardID) => {
     return $q( (resolve, reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/boards/${boardID}.json`)
@@ -41,6 +44,18 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     });
   };
 
+  let updateSinglePin = (pinId, editedPin) => {
+    return $q( (resolve, reject) => {
+      $http.patch(`https://dude-pinterest.firebaseio.com/pins/${pinId}.json`, JSON.stringify(editedPin))
+      .success( (ObjectFromFirebase) => {
+        resolve(ObjectFromFirebase);
+      })
+      .error( (error) => {
+        reject(error)
+      });
+    });
+  };
+
   let getPins = (boardID) => {
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
@@ -53,6 +68,22 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
       })
     })
   };
+
+  let getEditPins = (userID) => {
+    return $q((resolve,reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins.json`)
+      .then((data) => {
+        let pinArray = convertResultsToArray(data.data,'pinid',userID);
+        let filteredPinArray = filterArrayByID(pinArray,'uid',userID);
+        console.log("filteredData from firebase", filteredPinArray)
+        resolve(filteredPinArray);
+      }, (error) => {
+        console.error(error);
+        reject(error);
+      })
+    })
+  };
+
 
   let pushBoard = (boardObj) => {
     return $q((resolve,reject) => {
@@ -133,6 +164,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     return filteredData;
   }
 
-  return {getBoards,getPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard}
+  return {getBoards,getPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
 
 })

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebaseFactory) {
+app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebaseFactory, AuthFactory) {
 
     $scope.pinArray = []
 
@@ -14,6 +14,7 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebas
 
     $scope.addNewPin = () => {
         $window.location.href = `#/boards/${$routeParams.boardid}/newPin`
+        AuthFactory.setBoardid(`${$routeParams.boardid}`);
     }
 
     $scope.deletePin = function (pinID) {
