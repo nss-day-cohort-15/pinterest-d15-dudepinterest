@@ -2,7 +2,7 @@
   <div class="row">
     <div ng-init="loadBoardsToDom()">
         <div>
-          <a class="waves-effect waves-light btn" ng-click="addNewBoard()"><i class="material-icons left">note_add</i>Add New Board</a>
+          <a class="waves-effect waves-light btn teal darken-4" ng-click="addNewBoard()"><i class="material-icons left">note_add</i>Add New Board</a>
         </div>
         <div class="col s6 m4 l3" ng-repeat="board in boardArray">
           <div class="hoverable card">
@@ -12,8 +12,8 @@
               </div>
             </a>
             <div class="card-action">
-                <a class="waves-effect waves-light btn btn-small" ng-click="deleteBoard(board.boardid)"><i class="material-icons left">delete</i>Delete</a>
-                <span class="right"><a class="waves-effect waves-light btn btn-small" ng-href="#/boards/edit/{{board.boardid}}"><i class="material-icons left">mode_edit</i>Edit</a></span>
+                <a class="waves-effect waves-light btn btn-small teal darken-4" ng-click="deleteBoard(board.boardid)"><i class="material-icons left">delete</i>Delete</a>
+                <span class="right"><a class="waves-effect waves-light btn btn-small teal darken-4" ng-href="#/boards/edit/{{board.boardid}}"><i class="material-icons left">mode_edit</i>Edit</a></span>
             </div>
           </div>
         </div>
