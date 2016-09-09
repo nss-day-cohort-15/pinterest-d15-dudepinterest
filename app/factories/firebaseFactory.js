@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory('firebaseFactory',function($q,$http,FBCreds) {
+app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
 
   let getBoards = (userID) => {
     return $q((resolve,reject) => {
@@ -72,27 +72,29 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
     })
   };
 
-  let deleteBoard = (boardID) => {
-    return $q((resolve,reject) => {
-      $http.delete('{FBCreds.databaseURL}/boards/{boardid}').then((boardID) => {
-        resolve(boardID)
-      }),(error) => {
-        console.error(error);
-        reject(error);
-      }
-    })
+
+
+   let deleteBoard = (boardID) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}/boards/${boardID}.json`)
+      .success((ObjFromFirebase) => {
+        resolve(ObjFromFirebase);
+      });
+    });
   };
 
-  let deletePin = (pinID) => {
-    return $q((resolve,reject) => {
-      $http.delete('{FBCreds.databaseURL}/pins/{pinid}').then((pinID) => {
-        resolve(pinID)
-      }),(error) => {
-        console.error(error);
-        reject(error);
-      }
-    })
+
+
+   let deletePin = (pinID) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}/pins/${pinID}.json`)
+      .success((ObjFromFirebase) => {
+        resolve(ObjFromFirebase);
+      });
+    });
   };
+
+
 
   let convertResultsToArray = (object,idType,uid) => {
     let resultsArray = [];
