@@ -11,6 +11,8 @@ app.controller('newPinCtrl',function($scope,$window,$routeParams,firebaseFactory
 
   $scope.pushPin = () => {
     $scope.newPin.uid = AuthFactory.getUid();
+    $scope.showToast("Dude, new pin. Sweet!");
+
     firebaseFactory.pushPin($scope.newPin)
     .then(() => {
       $window.location.href = `#/boards/${$routeParams.boardid}`;

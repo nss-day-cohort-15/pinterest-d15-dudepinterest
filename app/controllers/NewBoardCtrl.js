@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NewBoardCtrl", function ($scope, AuthFactory, firebaseFactory, $window) {
+app.controller("NewBoardCtrl", function($scope, AuthFactory, firebaseFactory, $window) {
 
     let _uid = AuthFactory.getUid()
 
@@ -9,11 +9,12 @@ app.controller("NewBoardCtrl", function ($scope, AuthFactory, firebaseFactory, $
         "uid": _uid
     }
 
-    $scope.addNewBoard = function () {
+    $scope.addNewBoard = function() {
         firebaseFactory.pushBoard($scope.newBoard)
-        .then( function () {
-            $window.location.href = "#/boards"
-        })
+            .then(function() {
+                $scope.showToast("Dude New Board!");
+                $window.location.href = "#/boards"
+            })
     }
 
 

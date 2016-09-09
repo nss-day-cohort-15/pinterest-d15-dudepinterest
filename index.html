@@ -4,41 +4,50 @@
         <meta charset="utf-8">
         <title>Dude, Pinterest</title>
         <link rel="stylesheet" type="text/css" href="lib/bower_components/materialize/dist/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/bower_components/angular-material/angular-material.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
 
     <body ng-app="DudePinterestApp">
-    <div ng-controller="TopCtrl">
-      <div ng-include="'partials/navbar.html'"></div>
+      <div ng-controller="AppCtrl">
+        <div ng-controller="TopCtrl">
 
-      <div ng-view></div>
+            <div ng-include="'partials/navbar.html'"></div>
+
+            <div ng-view></div>
+          </div>
+        </div>
     </div>
-      <!-- PUBLIC -->
-        <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-        <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+    <!-- PUBLIC -->
+    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular-material/angular-material.min.js"></script>
 
-        <!--APP  -->
-        <script type="text/javascript" src="app/app.js"></script>
+    <!--APP  -->
+    <script type="text/javascript" src="app/app.js"></script>
 
-        <!-- FACTORIES -->
-        <script type="text/javascript" src="app/values/FirebaseKeys.js"></script>
-        <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
-        <script type="text/javascript" src="app/factories/firebaseFactory.js"></script>
+    <!-- FACTORIES -->
+    <script type="text/javascript" src="app/values/FirebaseKeys.js"></script>
+    <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+    <script type="text/javascript" src="app/factories/firebaseFactory.js"></script>
 
-        <!-- CONTROLLERS -->
-        <script type="text/javascript" src="app/controllers/TopCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/ProfileCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/BoardViewCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/BoardEditCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/NewBoardCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/NewPinCtrl.js"></script>
-        <script type="text/javascript" src="app/controllers/PinEditCtrl.js"></script>
+    <!-- CONTROLLERS -->
+    <script type="text/javascript" src="app/controllers/TopCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/ProfileCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/BoardViewCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/BoardEditCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/NewBoardCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/NewPinCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/PinEditCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/MaterializeCtrl.js"></script>
 
-    </body>
+</body>
 </html>
