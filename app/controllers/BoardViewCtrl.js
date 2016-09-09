@@ -18,7 +18,7 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebas
 
     $scope.deletePin = function () {
         console.log("deletePin running")
-        // firebaseFactory.deletePin(pinid)
+        firebaseFactory.deletePin(pinid)
     }
     $scope.editPin = function () {
         console.log("editPin running")

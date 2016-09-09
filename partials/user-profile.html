@@ -1,7 +1,7 @@
 <div ng-init="loadBoardsToDom()">
     <div ng-repeat="board in boardArray">
         <a ng-href="#/boards/{{board.boardid}}"><div>{{board.name}}</div></a>
-        <button ng-click="deleteBoard()">Delete This Board</button>
+        <button ng-click="deleteBoard(board.boardid)">Delete This Board</button>
         <button ng-click="editBoard()">Edit This Board</button>
     </div>
     <div>
