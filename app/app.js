@@ -33,11 +33,10 @@ app.config(function($routeProvider) {
     templateUrl: "partials/pin-new.html",
     controller: "newPinCtrl"
   }).
-  when("/edit/:pinid", {
+  when("/edit/:boardid/:pinid", {
     templateUrl: "partials/pin-edit.html",
     controller: "PinEditCtrl"
-  }).
-  otherwise("/login");
+  })
 });
 
 app.run( ($location, FBCreds) => {

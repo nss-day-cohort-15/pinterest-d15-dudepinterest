@@ -17,7 +17,7 @@ app.controller("PinEditCtrl", function($scope, $location, $routeParams, firebase
   $scope.addNewItem = () => {
       firebaseFactory.updateSinglePin($routeParams.pinid, $scope.selectedPin)
           .then((response) => {
-              $location.url("/boards/${}")
+              $location.url(`/boards/${$routeParams.boardid}`)
           });
   };
 });
