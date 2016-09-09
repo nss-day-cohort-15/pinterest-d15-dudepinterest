@@ -2,16 +2,13 @@
 
 app.factory("AuthFactory", function () {
 
-    let _uid = null
-
-    // let setUid = function (uid) {
-    //     _uid = uid
-    //     console.log("_uid", _uid)
-    // }
+    let _uid = null;
+    let _boardid = null;
 
     let getUid = function () {
         return _uid
     }
+
 
     firebase.auth().onAuthStateChanged(function (user) {
         console.log("onAuthStateChanged running")

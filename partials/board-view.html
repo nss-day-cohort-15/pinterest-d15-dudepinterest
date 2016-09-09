@@ -6,10 +6,13 @@
             <img src="{{pin.imgurl}}">
             <p>{{pin.description}}</p>
             <button ng-click="deletePin(pin.pinid)">Delete Pin</button>
-            <button ng-click="editPin()">Edit Pin</button>
+            <a ng-href="#/edit/{{pin.boardid}}/{{pin.pinid}}"><button>Edit Pin</button></a>
         </div>
     </div>
     <div>
         <button ng-click="addNewPin()">Add New Pin</button>
     </div>
 </div>
+
+
+<!-- /boards/:boardid/edit/:pinid -->

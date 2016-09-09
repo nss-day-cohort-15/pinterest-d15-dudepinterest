@@ -6,7 +6,6 @@ app.controller("BoardEditCtrl", function($scope, $location, $routeParams, fireba
     $scope.boards = [];
     $scope.newBoard = {};
 
-
     firebaseFactory.getBoards(AuthFactory.getUid())
       .then( (filteredBoardArray)=> {
         $scope.boards = filteredBoardArray;
