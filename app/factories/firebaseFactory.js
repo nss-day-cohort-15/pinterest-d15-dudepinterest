@@ -96,8 +96,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
-
-
    let deleteBoard = (boardID) => {
     return $q((resolve, reject) => {
       $http.delete(`${FirebaseURL}/boards/${boardID}.json`)
@@ -108,7 +106,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
   };
 
 
-
    let deletePin = (pinID) => {
     return $q((resolve, reject) => {
       $http.delete(`${FirebaseURL}/pins/${pinID}.json`)
@@ -117,7 +114,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
       });
     });
   };
-
 
 
   let convertResultsToArray = (object,idType,uid) => {

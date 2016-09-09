@@ -5,7 +5,7 @@
             <h3>{{pin.title}}</h3>
             <img src="{{pin.imgurl}}">
             <p>{{pin.description}}</p>
-            <button ng-click="deletePin()">Delete Pin</button>
+            <button ng-click="deletePin(pin.pinid)">Delete Pin</button>
             <button ng-click="editPin()">Edit Pin</button>
         </div>
     </div>

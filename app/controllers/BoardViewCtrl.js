@@ -16,10 +16,14 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebas
         $window.location.href = `#/boards/${$routeParams.boardid}/newPin`
     }
 
-    $scope.deletePin = function () {
+    $scope.deletePin = function (pinID) {
         console.log("deletePin running")
-        firebaseFactory.deletePin(pinid)
+        firebaseFactory.deletePin(pinID)
+        .then((response) => {
+        $scope.loadPinsToDom()
+        })
     }
+
     $scope.editPin = function () {
         console.log("editPin running")
         // firebaseFactory.patchPin(pinid)
