@@ -5,10 +5,19 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
     $scope.boardArray = []
 
     $scope.loadBoardsToDom = function () {
-        firebaseFactory.getBoards(AuthFactory.getUid())
-        .then(function (filteredBoardArray) {
-            $scope.boardArray = filteredBoardArray
-        })
+        if (AuthFactory.getUid()) {
+            firebaseFactory.getBoards(AuthFactory.getUid())
+            .then(function (filteredBoardArray) {
+                $scope.boardArray = filteredBoardArray
+            })
+        } else {
+            firebase.auth().onAuthStateChanged(() => {
+                firebaseFactory.getBoards(AuthFactory.getUid())
+                .then(function (filteredBoardArray) {
+                    $scope.boardArray = filteredBoardArray
+                })
+            })
+        }
     }
 
     $scope.addNewBoard = function () {
