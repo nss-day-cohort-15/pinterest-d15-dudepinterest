@@ -2,7 +2,7 @@
     <div ng-repeat="board in boardArray">
         <a ng-href="#/boards/{{board.boardid}}"><div>{{board.name}}</div></a>
         <button ng-click="deleteBoard()">Delete This Board</button>
-        <button ng-click="editBoard()">Edit This Board</button>
+        <a ng-href="#/boards/edit/{{board.boardid}}"><button >Edit This Board</button></a>
     </div>
     <div>
         <button ng-click="addNewBoard()">Add New Board</button>
