@@ -16,9 +16,12 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         // firebaseFactory.pushBoard(boardObj)
     }
 
-    $scope.deleteBoard = function () {
+    $scope.deleteBoard = function (boardID) {
         console.log("deleteBoard is running")
-        // firebaseFactory.deleteBoard($routeParams.boardid)
+        firebaseFactory.deleteBoard(boardID)
+        .then((response) => {
+        $scope.loadBoardsToDom()
+        });
     }
 
     $scope.editBoard = function () {

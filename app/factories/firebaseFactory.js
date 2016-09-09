@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory('firebaseFactory',function($q,$http,FBCreds) {
+app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
 
   let getBoards = (userID) => {
     return $q((resolve,reject) => {
@@ -15,6 +15,30 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
         reject(error);
       })
     })
+  };
+
+  let getSingleBoard = (boardID) => {
+    return $q( (resolve, reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/boards/${boardID}.json`)
+      .success( (boardObj) => {
+        resolve(boardObj)
+      })
+      .error( (error) => {
+        reject(error);
+      });
+    });
+  };
+
+  let updateSingleBoard = (boardID, editedBoard) => {
+    return $q( (resolve, reject) => {
+      $http.patch(`https://dude-pinterest.firebaseio.com/boards/${boardID}.json`, JSON.stringify(editedBoard))
+      .success( (ObjectFromFirebase) => {
+        resolve(ObjectFromFirebase);
+      })
+      .error( (error) => {
+        reject(error)
+      });
+    });
   };
 
   let getPins = (boardID) => {
@@ -72,27 +96,29 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
     })
   };
 
-  let deleteBoard = (boardID) => {
-    return $q((resolve,reject) => {
-      $http.delete('{FBCreds.databaseURL}/boards/{boardid}').then((boardID) => {
-        resolve(boardID)
-      }),(error) => {
-        console.error(error);
-        reject(error);
-      }
-    })
+
+
+   let deleteBoard = (boardID) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}/boards/${boardID}.json`)
+      .success((ObjFromFirebase) => {
+        resolve(ObjFromFirebase);
+      });
+    });
   };
 
-  let deletePin = (pinID) => {
-    return $q((resolve,reject) => {
-      $http.delete('{FBCreds.databaseURL}/pins/{pinid}').then((pinID) => {
-        resolve(pinID)
-      }),(error) => {
-        console.error(error);
-        reject(error);
-      }
-    })
+
+
+   let deletePin = (pinID) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}/pins/${pinID}.json`)
+      .success((ObjFromFirebase) => {
+        resolve(ObjFromFirebase);
+      });
+    });
   };
+
+
 
   let convertResultsToArray = (object,idType,uid) => {
     let resultsArray = [];
@@ -111,6 +137,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds) {
     return filteredData;
   }
 
-  return {getBoards,getPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin}
+  return {getBoards,getPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard}
 
 })

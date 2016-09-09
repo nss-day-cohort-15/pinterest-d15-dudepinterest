@@ -1,6 +1,8 @@
 "use strict";
 
-var app = angular.module("DudePinterestApp", ["ngRoute"]);
+var app = angular.module("DudePinterestApp", ["ngRoute"])
+.constant("FirebaseURL", "https://dude-pinterest.firebaseio.com");
+
 
 app.config(function($routeProvider) {
   $routeProvider.
