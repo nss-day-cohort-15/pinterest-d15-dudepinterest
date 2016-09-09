@@ -2,8 +2,9 @@
     <h1>BOARD TITLE</h1>
     <div ng-repeat="pin in pinArray">
         <div class="pinCard">
-            <h1>{{pin.name}}</h1>
-            <h1>{{pin.description}}</h1>
+            <h3>{{pin.title}}</h3>
+            <img src="{{pin.imgurl}}">
+            <p>{{pin.description}}</p>
             <button ng-click="deletePin(pin.pinid)">Delete Pin</button>
             <button ng-click="editPin()">Edit Pin</button>
         </div>

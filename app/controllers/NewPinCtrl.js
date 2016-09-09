@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('newPinCtrl',function($scope,$window,$routeParams,firebaseFactory) {
+app.controller('newPinCtrl',function($scope,$window,$routeParams,firebaseFactory,AuthFactory) {
 
   $scope.newPin = {
     title: '',
@@ -10,9 +10,10 @@ app.controller('newPinCtrl',function($scope,$window,$routeParams,firebaseFactory
   }
 
   $scope.pushPin = () => {
+    $scope.newPin.uid = AuthFactory.getUid();
     firebaseFactory.pushPin($scope.newPin)
     .then(() => {
-      window.location.href = `#/boards/${$routeParams.boardid}`
+      $window.location.href = `#/boards/${$routeParams.boardid}`;
     });
   }
 
