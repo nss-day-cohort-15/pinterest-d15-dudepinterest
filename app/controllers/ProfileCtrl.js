@@ -2,7 +2,8 @@
 
 app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, AuthFactory, $window, $location) {
 
-    $scope.boardArray = []
+    $scope.boardArray = [];
+    $scope.pinArray = [];
 
     $scope.loadBoardsToDom = function () {
         if (AuthFactory.getUid()) {
@@ -20,6 +21,22 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         }
     }
 
+    $scope.loadPinsToDom = () => {
+        if (AuthFactory.getUid()) {
+            firebaseFactory.getAllPins(AuthFactory.getUid())
+            .then(function (filteredPinArray) {
+                $scope.pinArray = filteredPinArray;
+            })
+        } else {
+            firebase.auth().onAuthStateChanged(() => {
+                firebaseFactory.getAllPins(AuthFactory.getUid())
+                .then(function (filteredPinArray) {
+                    $scope.pinArray = filteredPinArray;
+                })
+            })
+        }
+    }
+
     $scope.addNewBoard = function () {
         $window.location.href = "#/boards/new"
     }
@@ -29,6 +46,15 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
         .then((response) => {
         $scope.loadBoardsToDom()
         });
+    }
+
+    $scope.deletePin = function (pinID) {
+        firebaseFactory.deletePin(pinID)
+        .then((response) => {
+          $scope.showToast("Dude, you deleted your pin");
+
+        $scope.loadPinsToDom()
+        })
     }
 
     let colorize = (arrayOfBoards) => {

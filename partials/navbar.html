@@ -1,8 +1,13 @@
 <nav ng-controller="navCtrl">
   <div class="nav-wrapper light-blue">
+    <ul id="" class="left">
+      <li>Explore:</li>
+      <li><a href="#/allpins">Pins</a></li>
+      <li><a href="#/allboards">Boards</a></li>
+    </ul>
     <a class="brand-logo" href="" ng-click="homeNav()">Dude, Pinterest</a>
     <ul id="" class="right">
-      <li><a href="#/boards">Boards</a></li>
+      <li><a href="#/boards" ng-show="$parent.isLoggedIn">Profile</a></li>
       <li><a href="#/login" ng-show="!$parent.isLoggedIn">Login</a></li>
       <li><a href="#/login" ng-show="$parent.isLoggedIn" ng-click="logout()">Logout</a></li>
     </ul>
