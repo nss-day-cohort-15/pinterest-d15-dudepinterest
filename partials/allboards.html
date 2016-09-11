@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Dude, check out all these boards</h2>
+  <div class="row">
+    <div ng-init="loadBoardsToDom()">
+        <div class="col s6 m4 l3" ng-repeat="board in boardArray">
+          <div class="hoverable card">
+            <a ng-href="#/explore/boards/{{board.boardid}}">
+              <div style="background: {{board.color}}">
+                <h2 class="board-name center-align">{{board.name}}</h2>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,20 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
+  let getAllBoards = (userID) => {
+    return $q((resolve,reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/boards.json`)
+      .then((data) => {
+        let boardArray = convertResultsToArray(data.data,'boardid',userID);
+        let filteredBoardArray = filterArrayByNotID(boardArray,'uid',userID);
+        resolve(filteredBoardArray);
+      }, (error) => {
+        console.error(error);
+        reject(error);
+      })
+    })
+  };
+
   let getSingleBoard = (boardID) => {
     return $q( (resolve, reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/boards/${boardID}.json`)
@@ -52,7 +66,7 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     });
   };
 
-  let getUserPins = (boardID) => {
+  let getBoardPins = (boardID) => {
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
@@ -65,11 +79,24 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
-  let getAllPins = (uid) => {
+  let getUserPins = (uid) => {
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
         let filteredPinArray = filterArrayByID(pinArray,'uid',uid);
+        resolve(filteredPinArray);
+      } ,(error) => {
+        console.error(error);
+        reject(error);
+      })
+    })
+  }
+
+  let getAllPins = (uid) => {
+    return $q((resolve,reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
+        let pinArray = convertResultsToArray(data.data,'pinid');
+        let filteredPinArray = filterArrayByNotID(pinArray,'uid',uid);
         resolve(filteredPinArray);
       } ,(error) => {
         console.error(error);
@@ -179,6 +206,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     return filteredData;
   }
 
-  return {getBoards,getUserPins,getAllPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
+  return {getBoards,getAllBoards,getBoardPins,getUserPins,getAllPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
 
 })

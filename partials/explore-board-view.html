@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row" ng-init="loadPinsToDom()">
+        <div class="col s6 m4 l3" ng-repeat="pin in pinArray">
+        <div class="card hoverable">
+            <div class="card-image">
+                <img src="{{pin.imgurl}}">
+                <span class="card-title" style="background: rgba(0,0,0,0.4); width: 100%; padding: 1px 5px; font-weight: bold;">{{pin.title}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{pin.description}}</p>
+            </div>
+            <div class="card-action">
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,13 +23,13 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
 
     $scope.loadPinsToDom = () => {
         if (AuthFactory.getUid()) {
-            firebaseFactory.getAllPins(AuthFactory.getUid())
+            firebaseFactory.getUserPins(AuthFactory.getUid())
             .then(function (filteredPinArray) {
                 $scope.pinArray = filteredPinArray;
             })
         } else {
             firebase.auth().onAuthStateChanged(() => {
-                firebaseFactory.getAllPins(AuthFactory.getUid())
+                firebaseFactory.getUserPins(AuthFactory.getUid())
                 .then(function (filteredPinArray) {
                     $scope.pinArray = filteredPinArray;
                 })
