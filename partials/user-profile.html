@@ -7,7 +7,7 @@
         <div class="col s6 m4 l3" ng-repeat="board in boardArray">
           <div class="hoverable card">
             <a ng-href="#/boards/{{board.boardid}}">
-              <div style="background: {{randomColor()}}">
+              <div style="background: {{board.color}}">
                 <h2 class="board-name center-align">{{board.name}}</h2>
               </div>
             </a>

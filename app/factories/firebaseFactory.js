@@ -8,7 +8,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
       .then((data) => {
         let boardArray = convertResultsToArray(data.data,'boardid',userID);
         let filteredBoardArray = filterArrayByID(boardArray,'uid',userID);
-        console.log("filteredData from firebase", filteredBoardArray)
         resolve(filteredBoardArray);
       }, (error) => {
         console.error(error);
@@ -75,7 +74,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
       .then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid',userID);
         let filteredPinArray = filterArrayByID(pinArray,'uid',userID);
-        console.log("filteredData from firebase", filteredPinArray)
         resolve(filteredPinArray);
       }, (error) => {
         console.error(error);
