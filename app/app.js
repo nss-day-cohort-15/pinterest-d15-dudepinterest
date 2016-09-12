@@ -47,6 +47,10 @@ app.config(function($routeProvider) {
     when('/explore/boards/:boardid', {
       templateUrl: "partials/explore-board-view.html",
       controller: "BoardViewCtrl"
+    }).
+    when('/pin/:pinid', {
+      templateUrl: "partials/single-pin.html",
+      controller: "SinglePinCtrl"
     })
 });
 

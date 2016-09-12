@@ -119,6 +119,18 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
+  let getSinglePin = (pinId) => {
+    return $q( (resolve, reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins/${pinId}.json`)
+      .success( (pinObj) => {
+        resolve(pinObj)
+      })
+      .error( (error) => {
+        reject(error);
+      });
+    });
+  };
+
 
   let pushBoard = (boardObj) => {
     return $q((resolve,reject) => {
@@ -206,6 +218,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     return filteredData;
   }
 
-  return {getBoards,getAllBoards,getBoardPins,getUserPins,getAllPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
+  return {getBoards,getAllBoards,getBoardPins,getUserPins,getAllPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin, getSinglePin}
 
 })
