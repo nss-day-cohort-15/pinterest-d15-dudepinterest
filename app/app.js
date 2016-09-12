@@ -42,16 +42,21 @@ app.config(function($routeProvider) {
         controller: "ExploreCtrl"
     }).
     when('/explore/boards', {
-      templateUrl: "partials/allboards.html",
-      controller: "ExploreCtrl"
+        templateUrl: "partials/allboards.html",
+        controller: "ExploreCtrl"
     }).
     when('/explore/boards/:boardid', {
-      templateUrl: "partials/explore-board-view.html",
-      controller: "BoardViewCtrl"
+        templateUrl: "partials/explore-board-view.html",
+        controller: "BoardViewCtrl"
+    }).
+    when('/pin/:pinid', {
+        templateUrl: "partials/single-pin.html",
+        controller: "SinglePinCtrl"
     }).
     when('/explore/newpin/:pinid', {
-      templateUrl: "partials/pin-new.html",
-      controller: "newPinCtrl"
+        templateUrl: "partials/pin-new.html",
+        controller: "newPinCtrl"
+
     })
 });
 

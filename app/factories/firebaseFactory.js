@@ -131,6 +131,18 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
+  let getSinglePin = (pinId) => {
+    return $q( (resolve, reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins/${pinId}.json`)
+      .success( (pinObj) => {
+        resolve(pinObj)
+      })
+      .error( (error) => {
+        reject(error);
+      });
+    });
+  };
+
 
   let pushBoard = (boardObj) => {
     return $q((resolve,reject) => {
