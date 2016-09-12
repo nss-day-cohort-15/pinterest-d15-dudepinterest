@@ -6,13 +6,13 @@ app.constant("FirebaseURL", "https://dude-pinterest.firebaseio.com");
 app.config(function($routeProvider) {
     $routeProvider.
     when("/home", {
-        redirectTo: "/boards"
+        redirectTo: "/profile"
     }).
     when("/login", {
         templateUrl: "partials/login.html",
         controller: "LoginCtrl"
     }).
-    when("/boards", {
+    when("/profile", {
         templateUrl: "partials/user-profile-boards.html",
         controller: "ProfileCtrl"
     }).
@@ -38,11 +38,15 @@ app.config(function($routeProvider) {
     }).
     when('/allpins', {
         templateUrl: "partials/allpins.html",
-        controller: "exploreCtrl"
+        controller: "ExploreCtrl"
     }).
     when('/allboards', {
       templateUrl: "partials/allboards.html",
-      controller: "exploreCtrl"
+      controller: "ExploreCtrl"
+    }).
+    when('/explore/boards/:boardid', {
+      templateUrl: "partials/explore-board-view.html",
+      controller: "BoardViewCtrl"
     })
 });
 

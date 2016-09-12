@@ -2,14 +2,14 @@
 
 app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebaseFactory, AuthFactory) {
 
-    $scope.pinArray = []
+    $scope.pinArray = [];
 
     $scope.loadPinsToDom = function () {
-        firebaseFactory.getUserPins($routeParams.boardid)
+        firebaseFactory.getBoardPins($routeParams.boardid)
         .then(function (filteredPinArray) {
-            $scope.pinArray = filteredPinArray
+            $scope.pinArray = filteredPinArray;
         })
-    }
+    };
 
     $scope.addNewPin = () => {
         $window.location.href = `#/boards/${$routeParams.boardid}/newPin`
@@ -19,7 +19,6 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebas
         firebaseFactory.deletePin(pinID)
         .then((response) => {
           $scope.showToast("Dude, you deleted your pin");
-
         $scope.loadPinsToDom()
         })
     }
