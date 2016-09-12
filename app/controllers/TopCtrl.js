@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
+app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory,firebaseFactory) {
 
     $scope.isLoggedIn = false;
     $scope.userBoards = [];
@@ -9,6 +9,10 @@ app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             $scope.isLoggedIn = true
+            firebaseFactory.getBoards(user.uid)
+                .then((boardsArray) => {
+                    $scope.userBoards = boardsArray;
+                })
             console.log("user logged in?", $scope.isLoggedIn)
         } else {
             $scope.isLoggedIn = false
