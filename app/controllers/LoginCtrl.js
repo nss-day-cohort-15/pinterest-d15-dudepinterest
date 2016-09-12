@@ -29,7 +29,7 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
         .then( (data) => {
             if (data) {
             // AuthFactory.setUid(data.uid)
-            $window.location.href = "#/boards"
+            $window.location.href = "#/profile"
             $scope.showHelloToast();
             } else {
             $window.location.href = "#/login"
