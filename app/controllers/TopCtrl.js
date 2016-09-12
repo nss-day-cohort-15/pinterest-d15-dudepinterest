@@ -3,6 +3,7 @@
 app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
 
     $scope.isLoggedIn = false;
+    $scope.userBoards = [];
 
     // This is a watcher method built on the Firebase auth() method
     firebase.auth().onAuthStateChanged(function (user) {

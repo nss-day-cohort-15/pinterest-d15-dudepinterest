@@ -36,11 +36,11 @@ app.config(function($routeProvider) {
         templateUrl: "partials/pin-edit.html",
         controller: "PinEditCtrl"
     }).
-    when('/allpins', {
+    when('/explore/pins', {
         templateUrl: "partials/allpins.html",
         controller: "ExploreCtrl"
     }).
-    when('/allboards', {
+    when('/explore/boards', {
       templateUrl: "partials/allboards.html",
       controller: "ExploreCtrl"
     }).

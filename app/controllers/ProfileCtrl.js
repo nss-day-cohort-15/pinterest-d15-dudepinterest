@@ -10,12 +10,14 @@ app.controller("ProfileCtrl", function ($scope, firebaseFactory, $routeParams, A
             firebaseFactory.getBoards(AuthFactory.getUid())
             .then(function (filteredBoardArray) {
                 $scope.boardArray = colorize(filteredBoardArray)
+                $scope.$parent.userBoards = $scope.boardArray;
             })
         } else {
             firebase.auth().onAuthStateChanged(() => {
                 firebaseFactory.getBoards(AuthFactory.getUid())
                 .then(function (filteredBoardArray) {
                     $scope.boardArray = colorize(filteredBoardArray);
+                    $scope.$parent.userBoards = $scope.boardArray;
                 })
             })
         }
