@@ -14,12 +14,14 @@ app.controller("BoardEditCtrl", function($scope, $location, $routeParams, fireba
         })[0];
       });
 
-
-
+    $scope.enterKeyPressed = function(keyEvent) {
+  if (keyEvent.which === 13)
+    $scope.addNewItem();
+};
     $scope.addNewItem = () => {
         firebaseFactory.updateSingleBoard($routeParams.boardid, $scope.selectedBoard)
             .then((response) => {
-                $location.url("/boards")
+                $location.url("/profile")
                 $scope.showToast("Dude, you edited your board");
 
             });
