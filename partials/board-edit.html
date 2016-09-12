@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>Edit Board </h1>
-  <h3>Board name:<input type="text class="form-control placeholder="{{selectedBoard.name}}" ng-model="selectedBoard.name" ng-keypress="enterKeyPressed($event)"</h3>
-
-
-  <button class="btn btn-success" ng-click="addNewItem(selectedBoard.boardid)">Save Changes</button>
+    <h1>Edit Board</h1>
+    <form>
+        <div class="form-group">
+            <label>Board Name</label>
+            <input type="text" class="form-control placeholder="{{selectedBoard.name}}" ng-model="selectedBoard.name">
+        </div>
+        <button class="btn btn-success" ng-click="addNewItem(selectedPin.pinid)">Save Changes</button>
+    </form>
 </div>
 
 
