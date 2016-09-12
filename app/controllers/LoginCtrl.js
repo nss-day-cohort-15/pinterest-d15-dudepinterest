@@ -7,6 +7,11 @@ app.controller("LoginCtrl", function ($scope, $window, AuthFactory) {
         password: ""
     }
 
+    $scope.enterKeyPressed = function(keyEvent) {
+  if (keyEvent.which === 13)
+    $scope.login();
+}
+
     $scope.register = () => {
         console.log("you clicked register")
         AuthFactory.createUser({
