@@ -13,7 +13,7 @@ app.controller("NewBoardCtrl", function($scope, AuthFactory, firebaseFactory, $w
         firebaseFactory.pushBoard($scope.newBoard)
             .then(function() {
                 $scope.showToast("Dude New Board!");
-                $window.location.href = "#/boards"
+                $window.location.href = "#/profile"
             })
     }
 

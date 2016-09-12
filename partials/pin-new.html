@@ -1,22 +1,16 @@
 <h1>New Pin</h1>
 <form>
   <div class="form-group">
-    <div class="input-field">
-      <input type="text" class="form-control" placeholder="Bro, have you seen this title?" ng-model="newPin.title"/>
-      <label>Pin Title</label>
-    </div>
-    <div class=input-field>
-      <input type="text" class="form-control" placeholder="Paste Image Link HEre" ng-model="newPin.imgurl"/>
-    </div>
-    <div class="input-field">
-      <input type="text" class="form-control" placeholder="Dude, tell me all about this pin for real" ng-model="newPin.description"/>
-    </div>
-    <div class="input-field">
-      <select class="form-control" name="boardSelector" ng-model="boardSelector" ng-options="board.name for board in $parent.userBoards"></select>
-      <label for="boardSelector">Select Board: </label>
-    </div>
+    <label for="pin-title">Title</label>
+    <input type="text" name="pin-title" class="form-control" placeholder="Bro, have you seen this title?" ng-model="newPin.title"/>
+    <label for="pin-image">Link to Image</label>
+    <input type="text" name="pin-image" class="form-control" placeholder="Paste Image Link Here" ng-model="newPin.imgurl"/>
+    <label for="pin-description">Description</label>
+    <input type="text" name="pin-description" class="form-control" placeholder="Dude, tell me all about this pin for real" ng-model="newPin.description"/>
+    <label for="boardSelector">Select Board: </label>
+    <md-select class="form-control" name="boardSelector" ng-model="newPin.boardid">
+      <md-option ng-value="board.boardid" ng-repeat="board in $parent.userBoards">{{board.name}}</md-option>
+    </md-select>
   </div>
-  <div class="input-field">
     <button class="btn btn-default" ng-click="pushPin()">Submit</button>
-  </div>
 </form>

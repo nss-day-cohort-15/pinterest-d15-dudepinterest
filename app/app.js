@@ -48,7 +48,7 @@ app.config(function($routeProvider) {
       templateUrl: "partials/explore-board-view.html",
       controller: "BoardViewCtrl"
     }).
-    when('/expore/newpin/:pinid', {
+    when('/explore/newpin/:pinid', {
       templateUrl: "partials/pin-new.html",
       controller: "newPinCtrl"
     })
