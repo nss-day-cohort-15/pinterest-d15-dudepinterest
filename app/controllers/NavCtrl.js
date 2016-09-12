@@ -9,7 +9,7 @@ app.controller('navCtrl',($scope, $window, AuthFactory) => {
   $scope.homeNav = () => {
     let uid = AuthFactory.getUid();
     if (uid) {
-      $window.location.href = "#/boards"
+      $window.location.href = "#/profile"
     } else {
       $window.location.href = "#/login"
     }
