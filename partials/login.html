@@ -1,13 +1,15 @@
 <section class="auth-form">
+    <div class="container">
     <h1>Login or Register</h1>
-    <div>
-        Email: <input type="text" autofocus="true" ng-model="account.email" ng-keypress="enterKeyPressed($event)">
-    </div>
-    <div>
-        Password: <input type="password" ng-model="account.password" ng-keypress="enterKeyPressed($event)">
-    </div>
-    <div>
-        <button class="btn btn-info" ng-click="login()" >Login</button>
-        <button class="btn btn-info" ng-click="register()">Register</button>
-    </div>
+        <div>
+            Email: <input type="text" autofocus="true" ng-model="account.email" ng-keypress="enterKeyPressed($event)">
+        </div>
+        <div>
+            Password: <input type="password" ng-model="account.password" ng-keypress="enterKeyPressed($event)">
+        </div>
+        <div>
+            <button class="btn btn-info" ng-click="login()" >Login</button>
+            <button class="btn btn-info" ng-click="register()">Register</button>
+        </div>
+        </div>
 </section>
