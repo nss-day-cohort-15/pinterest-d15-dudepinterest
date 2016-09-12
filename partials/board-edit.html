@@ -1,5 +1,8 @@
 <h1>Edit Board </h1>
-<h3>Board name:<input type="text class="form-control placeholder="{{selectedBoard.name}}" ng-model="selectedBoard.name"</h3>
+<h3>Board name:<input type="text class="form-control placeholder="{{selectedBoard.name}}" ng-model="selectedBoard.name" ng-keypress="enterKeyPressed($event)"</h3>
 
 
 <button class="btn btn-success" ng-click="addNewItem(selectedBoard.boardid)">Save Changes</button>
+
+
+<!-- addNewItem -->

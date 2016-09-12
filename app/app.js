@@ -3,6 +3,7 @@
 var app = angular.module("DudePinterestApp", ["ngRoute", "ngMaterial"]);
 app.constant("FirebaseURL", "https://dude-pinterest.firebaseio.com");
 
+
 app.config(function($routeProvider) {
     $routeProvider.
     when("/home", {

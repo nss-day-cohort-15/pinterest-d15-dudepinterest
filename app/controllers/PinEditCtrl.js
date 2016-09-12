@@ -12,7 +12,12 @@ app.controller("PinEditCtrl", function($scope, $location, $routeParams, firebase
     $scope.selectedPin = $scope.pins.filter(function(pin) {
       return pin.pinid === $routeParams.pinid;
     })[0];
-  })
+  });
+
+    $scope.enterKeyPressed = function(keyEvent) {
+  if (keyEvent.which === 13)
+    $scope.addNewItem();
+};
 
   $scope.addNewItem = () => {
     $scope.showToast("Dude, nice edit.")
@@ -22,3 +27,4 @@ app.controller("PinEditCtrl", function($scope, $location, $routeParams, firebase
           });
   };
 });
+
