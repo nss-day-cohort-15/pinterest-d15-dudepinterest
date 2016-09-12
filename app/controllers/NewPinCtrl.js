@@ -9,6 +9,8 @@ app.controller('newPinCtrl',function($scope,$window,$routeParams,firebaseFactory
     boardid: $routeParams.boardid
   }
 
+  $scope.userBoards = $scope.$parent.userBoards;
+
   $scope.pushPin = () => {
     $scope.newPin.uid = AuthFactory.getUid();
     $scope.showToast("Dude, new pin. Sweet!");

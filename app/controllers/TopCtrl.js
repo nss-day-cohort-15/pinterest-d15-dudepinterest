@@ -12,6 +12,7 @@ app.controller("TopCtrl", function ($scope, $location, $window, AuthFactory) {
             console.log("user logged in?", $scope.isLoggedIn)
         } else {
             $scope.isLoggedIn = false
+            $scope.userBoards = [];
             console.log("user logged in?", $scope.isLoggedIn)
             $window.location.href = "#/login"
         }

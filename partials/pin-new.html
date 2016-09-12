@@ -5,6 +5,9 @@
     <input type="text" class="form-control" placeholder="Bro, have you seen this title?" ng-model="newPin.title"/>
     <input type="text" class="form-control" placeholder="Paste Image Link HEre" ng-model="newPin.imgurl"/>
     <input type="text" class="form-control" placeholder="Dude, tell me all about this pin for real" ng-model="newPin.description"/>
+    <select ng-repeat="board in userBoards">
+      <option value="{{board.boardid}}">{{board.title}}</option>
+    </select>
   </div>
   <button class="btn btn-default" ng-click="pushPin()">Submit</button>
 </form>
