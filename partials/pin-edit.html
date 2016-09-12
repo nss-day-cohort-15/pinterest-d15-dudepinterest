@@ -1,7 +1,8 @@
 <div class="container">
-    <h1>Edit Pin </h1>
-    <h3>Pin Title:<input type="text class="form-control placeholder="{{selectedPin.title}}" ng-model="selectedPin.title"</h3>
-    <h3>Pin Description:<input type="text class="form-control placeholder="{{selectedPin.description}}" ng-model="selectedPin.description"</h3>
-    <h3>Pin Image Url:<input type="text class="form-control placeholder="{{selectedPin.imgurl}}" ng-model="selectedPin.imgurl"</h3>
-    <button class="btn btn-success" ng-click="addNewItem(selectedPin.pinid)">Save Changes</button>
+
+  <h1>Edit Pin </h1>
+  <h3>Pin Title:<input type="text class="form-control placeholder="{{selectedPin.title}}" ng-model="selectedPin.title" ng-keypress="enterKeyPressed($event)"</h3>
+  <h3>Pin Description:<input type="text class="form-control placeholder="{{selectedPin.description}}" ng-model="selectedPin.description" ng-keypress="enterKeyPressed($event)"</h3>
+  <h3>Pin Image Url:<input type="text class="form-control placeholder="{{selectedPin.imgurl}}" ng-model="selectedPin.imgurl" ng-keypress="enterKeyPressed($event)"</h3>
+  <button class="btn btn-success" ng-click="addNewItem(selectedPin.pinid)">Save Changes</button>
 </div>

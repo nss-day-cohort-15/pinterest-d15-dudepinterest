@@ -3,6 +3,7 @@
 var app = angular.module("DudePinterestApp", ["ngRoute", "ngMaterial"]);
 app.constant("FirebaseURL", "https://dude-pinterest.firebaseio.com");
 
+
 app.config(function($routeProvider) {
     $routeProvider.
     when("/home", {
@@ -36,21 +37,26 @@ app.config(function($routeProvider) {
         templateUrl: "partials/pin-edit.html",
         controller: "PinEditCtrl"
     }).
-    when('/allpins', {
+    when('/explore/pins', {
         templateUrl: "partials/allpins.html",
         controller: "ExploreCtrl"
     }).
-    when('/allboards', {
-      templateUrl: "partials/allboards.html",
-      controller: "ExploreCtrl"
+    when('/explore/boards', {
+        templateUrl: "partials/allboards.html",
+        controller: "ExploreCtrl"
     }).
     when('/explore/boards/:boardid', {
-      templateUrl: "partials/explore-board-view.html",
-      controller: "BoardViewCtrl"
+        templateUrl: "partials/explore-board-view.html",
+        controller: "BoardViewCtrl"
     }).
     when('/pin/:pinid', {
-      templateUrl: "partials/single-pin.html",
-      controller: "SinglePinCtrl"
+        templateUrl: "partials/single-pin.html",
+        controller: "SinglePinCtrl"
+    }).
+    when('/explore/newpin/:pinid', {
+        templateUrl: "partials/pin-new.html",
+        controller: "newPinCtrl"
+
     })
 });
 
