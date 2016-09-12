@@ -5,8 +5,7 @@ app.controller("BoardViewCtrl", function ($scope, $routeParams, $window, firebas
     $scope.pinArray = []
 
     $scope.loadPinsToDom = function () {
-        console.log("loadPinsToDom running")
-        firebaseFactory.getPins($routeParams.boardid)
+        firebaseFactory.getUserPins($routeParams.boardid)
         .then(function (filteredPinArray) {
             $scope.pinArray = filteredPinArray
         })

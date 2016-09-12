@@ -16,9 +16,6 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     })
   };
 
-
-
-
   let getSingleBoard = (boardID) => {
     return $q( (resolve, reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/boards/${boardID}.json`)
@@ -55,18 +52,31 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     });
   };
 
-  let getPins = (boardID) => {
+  let getUserPins = (boardID) => {
     return $q((resolve,reject) => {
       $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
         let pinArray = convertResultsToArray(data.data,'pinid');
         let filteredPinArray = filterArrayByID(pinArray,'boardid',boardID);
         resolve(filteredPinArray);
       } ,(error) => {
-        // console.error(error);
+        console.error(error);
         reject(error);
       })
     })
   };
+
+  let getAllPins = (uid) => {
+    return $q((resolve,reject) => {
+      $http.get(`https://dude-pinterest.firebaseio.com/pins.json`).then((data) => {
+        let pinArray = convertResultsToArray(data.data,'pinid');
+        let filteredPinArray = filterArrayByID(pinArray,'uid',uid);
+        resolve(filteredPinArray);
+      } ,(error) => {
+        console.error(error);
+        reject(error);
+      })
+    })
+  }
 
   let getEditPins = (userID) => {
     return $q((resolve,reject) => {
@@ -162,6 +172,13 @@ app.factory('firebaseFactory',function($q,$http,FBCreds, FirebaseURL) {
     return filteredData;
   }
 
-  return {getBoards,getPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
+  let filterArrayByNotID = (data, idType, ID) => {
+    let filteredData = data.filter((element) => {
+      return element[idType] !== ID;
+    })
+    return filteredData;
+  }
+
+  return {getBoards,getUserPins,getAllPins,pushBoard,pushPin,patchBoard,patchPin,deleteBoard,deletePin, getSingleBoard, updateSingleBoard, getEditPins, updateSinglePin}
 
 })

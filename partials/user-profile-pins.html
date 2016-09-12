@@ -1,0 +1,22 @@
+<h2>Dude, Your Pins</h2>
+<div class="row">
+    <div ng-init="loadPinsToDom()">
+        <div class="col s6 m4 l3" ng-repeat="pin in pinArray">
+        <div class="card hoverable">
+            <div class="card-image">
+                <img src="{{pin.imgurl}}">
+                <span class="card-title" style="background: rgba(0,0,0,0.4); width: 100%; padding: 1px 5px; font-weight: bold;">{{pin.title}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{pin.description}}</p>
+            </div>
+            <div class="card-action">
+                <a class="waves-effect waves-light btn btn-small teal darken-4" ng-click="deletePin(pin.pinid)">
+                    <i class="material-icons left">delete</i>Delete</a>
+                <a class="waves-effect waves-light btn btn-small right teal darken-4" ng-href="#/edit/{{pin.boardid}}/{{pin.pinid}}">
+                    <i class="material-icons left">mode_edit</i>Edit</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
